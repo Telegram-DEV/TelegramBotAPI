@@ -1,0 +1,12 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/TelegramBotAPITargets.cmake")
+
+if(NOT DEFINED TelegramBotAPI_INCLUDE_DIRS)
+    set(TelegramBotAPI_INCLUDE_DIRS "@PACKAGE_INCLUDE_INSTALL_DIR@")
+endif()
+
+add_library(TelegramBotAPI::TelegramBotAPI ALIAS TelegramBotAPI)
+
+set(TelegramBotAPI_INCLUDE_DIR "${TelegramBotAPI_INCLUDE_DIRS}")
+mark_as_advanced(TelegramBotAPI_INCLUDE_DIR TelegramBotAPI_INCLUDE_DIRS)
